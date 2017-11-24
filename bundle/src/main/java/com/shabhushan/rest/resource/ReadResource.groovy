@@ -13,17 +13,17 @@ import javax.annotation.Nonnull
  * ----------------------------------------------------------------------------------------
  * 1.0              Nov 24, 2017    Shashi          Created Synthetic Resource
  */
-class ReadResource extends SyntheticResource  {
+class ReadResource extends RootResource  {
 
-    static final String ROOT_RESOURCE_TYPE = "${RootResource.ROOT_RESOURCE_TYPE}/read"
+    static final String READ_RESOURCE_TYPE = "${ROOT_RESOURCE_TYPE}/read"
 
     ReadResource(@Nonnull final ResourceResolver resourceResolver, @Nonnull final String resolutionPath,
-                 String resourceType = ROOT_RESOURCE_TYPE) {
+                 String resourceType = READ_RESOURCE_TYPE) {
         super(resourceResolver, resolutionPath, resourceType)
     }
 
     @Override
     String getResourceType() {
-        return ROOT_RESOURCE_TYPE
+        return READ_RESOURCE_TYPE
     }
 }
