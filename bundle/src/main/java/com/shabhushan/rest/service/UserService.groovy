@@ -10,10 +10,10 @@ package com.shabhushan.rest.service
  */
 interface UserService {
     boolean createUser(int id, String name)
-    boolean createUser()
+    boolean createUser(int id)
 
     String readUser(int id)
-    String readUser()
+    String readAllUsers()
 
     boolean updateUser(int id, String name)
 

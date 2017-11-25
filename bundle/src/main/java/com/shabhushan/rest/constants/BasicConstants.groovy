@@ -14,5 +14,6 @@ interface BasicConstants {
     public static final String UTF_8 = "UTF-8"
     public static final String METHOD_GET = "GET"
 
-    public static final String USER_CREATED_STATUS = "userCreated"
+    public static final String USER_CREATED_STATUS_KEY = "userCreated"
+    public static final String USER_CREATED_ERROR_KEY = "error"
 }

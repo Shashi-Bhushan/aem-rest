@@ -1,11 +1,14 @@
 package com.shabhushan.rest.service.impl
 
+import com.shabhushan.rest.constants.BasicConstants
 import com.shabhushan.rest.model.UserModel
 import com.shabhushan.rest.service.UserService
 import groovy.transform.CompileStatic
 import groovy.util.logging.Slf4j
 import org.apache.felix.scr.annotations.Component
 import org.apache.felix.scr.annotations.Service
+import org.apache.sling.commons.json.JSONArray
+import org.apache.sling.commons.json.JSONObject
 
 /**
  * @author Shashi Bhushan
@@ -33,18 +36,41 @@ class UserServiceImpl implements UserService {
     }
 
     @Override
-    boolean createUser() {
-        return false
+    boolean createUser(int id) {
+        return this.createUser(id, "")
     }
 
     @Override
     String readUser(int id) {
-        return null
+        JSONObject object = new JSONObject()
+
+        if(userExists(id)) {
+            UserModel user = userList.findAll {
+                it.id = id
+            }.get(0)
+
+            object.put("id", user.id)
+            object.put("name", user.name)
+
+            return object.toString()
+        } else {
+            object.put(BasicConstants.USER_CREATED_ERROR_KEY, "user does not exist")
+            return object.toString()
+        }
     }
 
     @Override
-    String readUser() {
-        return null
+    String readAllUsers() {
+        JSONArray users = new JSONArray()
+        userList.each {
+            JSONObject user = new JSONObject()
+
+            user.put("id", it.id)
+            user.put("name", it.name)
+
+            users.put(user)
+        }
+        return users.toString()
     }
 
     @Override

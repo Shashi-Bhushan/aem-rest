@@ -49,16 +49,21 @@ class CreateResourceServlet extends SlingSafeMethodsServlet {
             JSONObject responseObject = new JSONObject()
             def urlTokens = request.pathInfo.split('/')
 
-            int id
-            String name = ""
-            if(urlTokens.size() == 5) {
-                id = urlTokens[-2] as Integer
-                name = urlTokens[-1]
+            if(urlTokens.size() == 6) {
+                int id = urlTokens[-2] as Integer
+                String name = urlTokens[-1]
+
+                responseObject.put(USER_CREATED_STATUS_KEY, userService.createUser(id, name) ? true: false)
+            } else if(urlTokens.size() == 5){
+                int id = urlTokens[-1] as Integer
+
+                responseObject.put(USER_CREATED_STATUS_KEY, userService.createUser(id) ? true: false)
             } else {
-                id = urlTokens[-1] as Integer
+                responseObject.put(USER_CREATED_STATUS_KEY, false)
+                responseObject.put(USER_CREATED_ERROR_KEY, "Malformed URL.")
+
             }
 
-            responseObject.put(USER_CREATED_STATUS, userService.createUser(id, name) ? true: false)
             response.writer.write responseObject.toString()
         }
     }
