@@ -26,20 +26,21 @@ import static com.shabhushan.rest.constants.BasicConstants.*
 
 @Slf4j
 @CompileStatic
-@SlingServlet(methods = ['GET'], resourceTypes = ['rest/update'])
-class UpdateResourceServlet extends SlingSafeMethodsServlet {
+@SlingServlet(methods = ['POST'], resourceTypes = ['rest/update'])
+class UpdateResourceServlet extends SlingAllMethodsServlet {
 
     @Reference
     UserService userService
 
     @Override
-    protected void doGet(
+    protected void doPost(
         @Nonnull SlingHttpServletRequest request,
         @Nonnull SlingHttpServletResponse response) throws ServletException, IOException {
 
         if(request.pathInfo == '/rest/read') {
             response.contentType = CONTENT_TYPE_HTML
             response.writer.write this.class.getResourceAsStream('UpdateResourceText.txt').text
+            response.status = SC_OK
         } else {
             response.contentType = CONTENT_TYPE_JSON
             JSONObject responseObject = new JSONObject()
@@ -50,10 +51,14 @@ class UpdateResourceServlet extends SlingSafeMethodsServlet {
                 int id = urlTokens[-2] as Integer
                 String name = urlTokens[-1]
 
-                responseObject.put(USER_UPDATE_STATUS_KEY, userService.updateUser(id, name))
+                boolean userUpdated = userService.updateUser(id, name)
+
+                responseObject.put(USER_UPDATE_STATUS_KEY, userUpdated)
+                response.status = userUpdated ? SC_OK : SC_BAD_REQUEST
             } else {
                 responseObject.put(USER_UPDATE_STATUS_KEY, false)
                 responseObject.put(USER_ERROR_KEY, "Malformed URL.")
+                response.status = SC_BAD_REQUEST
             }
         }
     }

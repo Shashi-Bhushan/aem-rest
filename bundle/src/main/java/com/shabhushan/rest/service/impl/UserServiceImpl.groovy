@@ -28,7 +28,7 @@ class UserServiceImpl implements UserService {
 
     @Override
     boolean createUser(int id, String name) {
-        if(userExists(id)) {
+        if (userExists(id)) {
             return false
         } else {
             userList.add(new UserModel(id: id, name: name))
@@ -44,7 +44,7 @@ class UserServiceImpl implements UserService {
     String readUser(int id) {
         JSONObject object = new JSONObject()
 
-        if(userExists(id)) {
+        if (userExists(id)) {
             UserModel user = userList.findAll {
                 it.id == id
             }.get(0)

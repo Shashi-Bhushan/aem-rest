@@ -46,10 +46,10 @@ class RestResourceProvider extends ResourceProvider {
 
     @Override
     Resource getResource(
-            @javax.annotation.Nonnull ResolveContext resolveContext,
-            @javax.annotation.Nonnull String path,
-            @javax.annotation.Nonnull ResourceContext resourceContext,
-            @javax.annotation.CheckForNull Resource resource) {
+        @javax.annotation.Nonnull ResolveContext resolveContext,
+        @javax.annotation.Nonnull String path,
+        @javax.annotation.Nonnull ResourceContext resourceContext,
+        @javax.annotation.CheckForNull Resource resource) {
         switch (path) {
             case ~/^\${providerRoot}\/create(\/.*)?$/:
                 log.info "Resolving ${path} to Create Resource"
@@ -75,7 +75,7 @@ class RestResourceProvider extends ResourceProvider {
 
     @Override
     Iterator<Resource> listChildren(
-            @javax.annotation.Nonnull ResolveContext resolveContext, @javax.annotation.Nonnull Resource resource) {
+        @javax.annotation.Nonnull ResolveContext resolveContext, @javax.annotation.Nonnull Resource resource) {
         log.info "listChildren: Not Supported"
 
         throw new UnsupportedOperationException("List Children is not supported")

@@ -19,4 +19,9 @@ interface BasicConstants {
     public static final String USERS_DELETED_STATUS_KEY = "usersDeleted"
     public static final String USER_UPDATE_STATUS_KEY = "userUpdated"
     public static final String USER_ERROR_KEY = "error"
+
+    public static final int SC_OK = 200
+    public static final int SC_CREATED = 201
+    public static final int SC_BAD_REQUEST = 400
+
 }

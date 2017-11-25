@@ -13,6 +13,7 @@ import javax.annotation.Nonnull
 import javax.servlet.ServletException
 
 import static com.shabhushan.rest.constants.BasicConstants.*
+
 /**
  * @author Shashi Bhushan
  *
@@ -37,21 +38,24 @@ class ReadResourceServlet extends SlingSafeMethodsServlet {
         @Nonnull SlingHttpServletRequest request,
         @Nonnull SlingHttpServletResponse response) throws ServletException, IOException {
 
-        if(request.pathInfo == '/rest/read') {
+        if (request.pathInfo == '/rest/read') {
             response.contentType = CONTENT_TYPE_HTML
             response.writer.write this.class.getResourceAsStream('ReadResourceText.txt').text
+            response.status = SC_OK
         } else {
             response.contentType = CONTENT_TYPE_JSON
             def urlTokens = request.pathInfo.split('/')
 
             // request is in form /rest/read/user/1
-            if(urlTokens.size() == 5) {
+            if (urlTokens.size() == 5) {
                 int id = urlTokens[-1] as Integer
 
                 response.writer.write userService.readUser(id)
-            } else if(urlTokens.size() == 4) {
+                response.status = SC_OK
+            } else if (urlTokens.size() == 4) {
                 // request is in form /rest/read/user
                 response.writer.write userService.readAllUsers()
+                response.status = SC_OK
             }
         }
     }

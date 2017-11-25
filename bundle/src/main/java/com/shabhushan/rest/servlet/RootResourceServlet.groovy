@@ -22,7 +22,7 @@ import static com.shabhushan.rest.constants.BasicConstants.*
  */
 @Slf4j
 @CompileStatic
-@SlingServlet(methods = ['GET'], resourceTypes = ['rest'])
+@SlingServlet(methods = ['GET', 'POST', 'PUT', 'DELETE'], resourceTypes = ['rest'])
 class RootResourceServlet extends SlingSafeMethodsServlet {
 
     @Override
@@ -33,5 +33,27 @@ class RootResourceServlet extends SlingSafeMethodsServlet {
         response.contentType = CONTENT_TYPE_HTML
         response.characterEncoding = UTF_8
         response.writer.write this.class.getResourceAsStream("RootResourceText.txt").text
+        response.status = SC_OK
+    }
+
+    @Override
+    protected void doPost(
+        @Nonnull SlingHttpServletRequest request,
+        @Nonnull SlingHttpServletResponse response) throws ServletException, IOException {
+        doGet(request, response)
+    }
+
+    @Override
+    protected void doDelete(
+        @Nonnull SlingHttpServletRequest request,
+        @Nonnull SlingHttpServletResponse response) throws ServletException, IOException {
+        doGet(request, response)
+    }
+
+    @Override
+    protected void doPut(
+        @Nonnull SlingHttpServletRequest request,
+        @Nonnull SlingHttpServletResponse response) throws ServletException, IOException {
+        doGet(request, response)
     }
 }

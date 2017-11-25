@@ -13,7 +13,7 @@ import javax.annotation.Nonnull
  * ----------------------------------------------------------------------------------------
  * 1.0              Nov 24, 2017    Shashi          Created Synthetic Resource
  */
-class DeleteResource extends RootResource  {
+class DeleteResource extends RootResource {
 
     static final String DELETE_RESOURCE_TYPE = "${ROOT_RESOURCE_TYPE}/delete"
 

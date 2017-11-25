@@ -13,7 +13,7 @@ import javax.annotation.Nonnull
  * ----------------------------------------------------------------------------------------
  * 1.0              Nov 24, 2017    Shashi          Created Synthetic Resource
  */
-class ReadResource extends RootResource  {
+class ReadResource extends RootResource {
 
     static final String READ_RESOURCE_TYPE = "${ROOT_RESOURCE_TYPE}/read"
 
