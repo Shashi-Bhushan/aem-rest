@@ -1,0 +1,9 @@
+<b>Rest Delete User Request.</b><br/>
+
+Example Usage : <br/>
+<a href="/rest/delete/user/all">
+    Delete All User
+</a> <br/>
+<a href="/rest/delete/user/1">
+    Delete User with ID 1
+</a> <br/>

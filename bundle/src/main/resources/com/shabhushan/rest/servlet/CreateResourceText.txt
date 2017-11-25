@@ -1,0 +1,9 @@
+<b>Rest Create User Request.</b><br/>
+
+Example Usage : <br/>
+<a href="/rest/create/user">
+    Create User with Random ID
+</a> <br/>
+<a href="/rest/create/user/1">
+    Create User with ID 1
+</a> <br/>

@@ -1,0 +1,9 @@
+<b>Rest Read User Request.</b><br/>
+
+Example Usage : <br/>
+<a href="/rest/read/user">
+    Read All User
+</a> <br/>
+<a href="/rest/read/user/1">
+    Read User with ID 1
+</a> <br/>

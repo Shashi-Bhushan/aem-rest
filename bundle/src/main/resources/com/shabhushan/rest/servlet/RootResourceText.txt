@@ -1,0 +1,16 @@
+<b>Direct Request to this url is not supported.</b><br/>
+
+Visit one of the following links for more info!<br/>
+
+<a href="/rest/create">
+    Create Requests
+</a> <br/>
+<a href="/rest/read">
+    Read Requests
+</a> <br/>
+<a href="/rest/update">
+    Update Requests
+</a> <br/>
+<a href="/rest/delete">
+    Delete Requests
+</a> <br/>
