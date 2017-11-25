@@ -21,7 +21,7 @@ import static com.shabhushan.rest.constants.BasicConstants.*
  * Change History:
  * Revision         Date            Dev             Comment
  * ----------------------------------------------------------------------------------------
- * 1.0              24/11/17         Shashi          Create CreateResourceServlet
+ * 1.0              24/11/17         Shashi          Create UpdateResourceServlet
  */
 
 @Slf4j
