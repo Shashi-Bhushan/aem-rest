@@ -8,15 +8,11 @@ import org.apache.felix.scr.annotations.sling.SlingServlet
 import org.apache.sling.api.SlingHttpServletRequest
 import org.apache.sling.api.SlingHttpServletResponse
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet
-import org.apache.sling.commons.json.JSONObject
 
 import javax.annotation.Nonnull
 import javax.servlet.ServletException
 
-import static com.shabhushan.rest.constants.BasicConstants.CONTENT_TYPE_HTML
-import static com.shabhushan.rest.constants.BasicConstants.CONTENT_TYPE_JSON
-import static com.shabhushan.rest.constants.BasicConstants.USER_CREATED_STATUS_KEY
-
+import static com.shabhushan.rest.constants.BasicConstants.*
 /**
  * @author Shashi Bhushan
  *

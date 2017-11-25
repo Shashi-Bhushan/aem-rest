@@ -46,7 +46,7 @@ class UserServiceImpl implements UserService {
 
         if(userExists(id)) {
             UserModel user = userList.findAll {
-                it.id = id
+                it.id == id
             }.get(0)
 
             object.put("id", user.id)
@@ -54,7 +54,7 @@ class UserServiceImpl implements UserService {
 
             return object.toString()
         } else {
-            object.put(BasicConstants.USER_CREATED_ERROR_KEY, "user does not exist")
+            object.put(BasicConstants.USER_ERROR_KEY, "user does not exist")
             return object.toString()
         }
     }
@@ -75,17 +75,28 @@ class UserServiceImpl implements UserService {
 
     @Override
     boolean updateUser(int id, String name) {
-        return false
+        userList.findAll {
+            it.id == id
+        }.each {
+            it.name = name
+        }
+
+        return true
     }
 
     @Override
     boolean deleteUser(int id) {
-        return false
+        return userList.removeAll(
+            userList.findAll {
+                it.id == id
+            }
+        )
     }
 
     @Override
     boolean deleteAllUsers() {
-        return false
+        userList = []
+        return true
     }
 
     @Override

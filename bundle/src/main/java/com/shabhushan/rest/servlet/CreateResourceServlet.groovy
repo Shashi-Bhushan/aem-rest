@@ -4,7 +4,6 @@ import com.shabhushan.rest.service.UserService
 import org.apache.felix.scr.annotations.Reference
 import org.apache.sling.commons.json.JSONObject
 
-import static com.shabhushan.rest.constants.BasicConstants.*
 import groovy.transform.CompileStatic
 import groovy.util.logging.Slf4j
 import org.apache.felix.scr.annotations.sling.SlingServlet
@@ -14,6 +13,8 @@ import org.apache.sling.api.servlets.SlingSafeMethodsServlet
 
 import javax.annotation.Nonnull
 import javax.servlet.ServletException
+
+import static com.shabhushan.rest.constants.BasicConstants.*
 
 /**
  * @author Shashi Bhushan
@@ -60,7 +61,7 @@ class CreateResourceServlet extends SlingSafeMethodsServlet {
                 responseObject.put(USER_CREATED_STATUS_KEY, userService.createUser(id) ? true: false)
             } else {
                 responseObject.put(USER_CREATED_STATUS_KEY, false)
-                responseObject.put(USER_CREATED_ERROR_KEY, "Malformed URL.")
+                responseObject.put(USER_ERROR_KEY, "Malformed URL.")
 
             }
 

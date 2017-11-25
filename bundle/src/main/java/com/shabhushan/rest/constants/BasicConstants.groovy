@@ -15,5 +15,8 @@ interface BasicConstants {
     public static final String METHOD_GET = "GET"
 
     public static final String USER_CREATED_STATUS_KEY = "userCreated"
-    public static final String USER_CREATED_ERROR_KEY = "error"
+    public static final String USER_DELETED_STATUS_KEY = "userDeleted"
+    public static final String USERS_DELETED_STATUS_KEY = "usersDeleted"
+    public static final String USER_UPDATE_STATUS_KEY = "userUpdated"
+    public static final String USER_ERROR_KEY = "error"
 }
