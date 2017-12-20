@@ -1,6 +1,5 @@
 package com.shabhushan.rest.servlet
 
-import com.shabhushan.rest.resource.RandomizeResource
 import com.shabhushan.rest.service.UserService
 import groovy.transform.CompileStatic
 import groovy.util.logging.Slf4j
@@ -8,7 +7,7 @@ import org.apache.felix.scr.annotations.Reference
 import org.apache.felix.scr.annotations.sling.SlingServlet
 import org.apache.sling.api.SlingHttpServletRequest
 import org.apache.sling.api.SlingHttpServletResponse
-import org.apache.sling.api.servlets.SlingSafeMethodsServlet
+import org.apache.sling.api.servlets.SlingAllMethodsServlet
 import org.apache.sling.commons.json.JSONObject
 
 import javax.annotation.Nonnull
@@ -19,7 +18,6 @@ import static com.shabhushan.rest.constants.BasicConstants.CONTENT_TYPE_JSON
 import static com.shabhushan.rest.constants.BasicConstants.SC_BAD_REQUEST
 import static com.shabhushan.rest.constants.BasicConstants.SC_OK
 import static com.shabhushan.rest.constants.BasicConstants.USER_CREATED_STATUS_KEY
-import static com.shabhushan.rest.constants.BasicConstants.USER_UPDATE_STATUS_KEY
 
 /**
  * @author Shashi Bhushan
@@ -31,14 +29,14 @@ import static com.shabhushan.rest.constants.BasicConstants.USER_UPDATE_STATUS_KE
  */
 @Slf4j
 @CompileStatic
-@SlingServlet(methods = ['GET'], resourceTypes = ['rest/randomize'])
-class RandomizeResourceServlet extends SlingSafeMethodsServlet {
+@SlingServlet(methods = ['POST'], resourceTypes = ['rest/randomize'])
+class RandomizeResourceServlet extends SlingAllMethodsServlet {
 
     @Reference
     UserService userService
 
     @Override
-    protected void doGet(
+    protected void doPost(
         @Nonnull SlingHttpServletRequest request,
         @Nonnull SlingHttpServletResponse response) throws ServletException, IOException {
 

@@ -1,10 +1,12 @@
-<!--/* Include Init.jsp for  */-->
-<sly data-sly-include="/libs/wcm/core/components/init/init.jsp" data-sly-unwrap/>
-
 <!--/* Include Cq's jQuery */-->
-<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientLib.js @ categories='cq.jquery'}" data-sly-unwrap/>
+<!--<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientLib.js @ categories='cq.jquery'}" data-sly-unwrap/>-->
+
+
 <!-- Include Angular -->
 <sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientLib.js @ categories='angular'}" data-sly-unwrap/>
+<!-- Include CSRF Token, this would have been included with granite.jquery clientlib -->
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientLib.js @ categories='granite.csrf.standalone'}" data-sly-unwrap/>
+
 <!-- Include Bootstrap -->
 <sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientLib.all @ categories='bootstrap'}" data-sly-unwrap/>
 

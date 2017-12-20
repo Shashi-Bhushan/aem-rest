@@ -1,5 +1,6 @@
 #base=js
 
+jquery-3.2.1.js
 angular.js
 app.js
 url-provider.js

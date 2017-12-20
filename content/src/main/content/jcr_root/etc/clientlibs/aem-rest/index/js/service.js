@@ -13,7 +13,7 @@
 
             var url = urlProvider.GetServiceURL('randomizeURL' , paramsArray);
 
-            $http.get(url).then(function(response) {
+            $http.post(url).then(function(response) {
                 deferred.resolve(response.data);
             });
 
