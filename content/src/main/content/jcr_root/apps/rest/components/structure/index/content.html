@@ -1,0 +1,23 @@
+<div ng-controller="indexController as controller">
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="user in controller.userList">
+                <th scope="row" ng-bind="$index+1"></th>
+                <td ng-bind="user.id">
+                </td>
+                <td ng-bind="user.name">
+                </td>
+                <td> Todo: Delete
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
