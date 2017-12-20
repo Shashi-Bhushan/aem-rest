@@ -24,7 +24,49 @@ import org.apache.sling.commons.json.JSONObject
 @Service(UserService)
 class UserServiceImpl implements UserService {
 
-    final static String[] nameList = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('') as String[]
+    final static String[] nameList = [
+        "Eddard \"Ned\" Stark",
+        "Robert Baratheon",
+        "Jaime Lannister",
+        "Catelyn Stark",
+        "Cersei Lannister",
+        "Daenerys Targaryen",
+        "Jorah Mormont",
+        "Petyr \"Littlefinger\" Baelish",
+        "Viserys Targaryen",
+        "Jon Snow",
+        "Sansa Stark",
+        "Arya Stark",
+        "Robb Stark",
+        "Theon Greyjoy",
+        "Bran Stark",
+        "Joffrey Baratheon",
+        "Sandor \"The Hound\" Clegane",
+        "Tyrion Lannister",
+        "Khal Drogo",
+        "Tywin Lannister",
+        "Davos Seaworth",
+        "Samwell Tarly",
+        "Margaery Tyrell",
+        "Stannis Baratheon",
+        "Melisandre",
+        "Jeor Mormont",
+        "Bronn","Varys",
+        "Shae","Ygritte",
+        "Talisa Maegyr",
+        "Gendry",
+        "Tormund Giantsbane",
+        "Gilly",
+        "Brienne of Tarth",
+        "Ramsay Bolton",
+        "Ellaria Sand",
+        "Daario Naharis",
+        "Missandei",
+        "Jaqen H'ghar",
+        "Tommen Baratheon",
+        "Roose Bolton",
+        "The High Sparrow"
+    ]
 
     final static Random random = new Random()
 
@@ -113,7 +155,7 @@ class UserServiceImpl implements UserService {
             // get a random number
             int id = random.nextInt(max + 1)
 
-            userList << new UserModel(id: it, name: nameList[id % 26])
+            userList << new UserModel(id: it, name: nameList[id % nameList.length])
         }
 
         return true
