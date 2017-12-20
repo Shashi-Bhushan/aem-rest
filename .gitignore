@@ -3,5 +3,6 @@
 .idea
 *.log
 *.iml
+.DS_Store
 target
 out

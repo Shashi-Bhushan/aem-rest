@@ -7,7 +7,7 @@ import org.apache.felix.scr.annotations.Reference
 import org.apache.felix.scr.annotations.sling.SlingServlet
 import org.apache.sling.api.SlingHttpServletRequest
 import org.apache.sling.api.SlingHttpServletResponse
-import org.apache.sling.api.servlets.SlingSafeMethodsServlet
+import org.apache.sling.api.servlets.SlingAllMethodsServlet
 import org.apache.sling.commons.json.JSONObject
 
 import javax.annotation.Nonnull

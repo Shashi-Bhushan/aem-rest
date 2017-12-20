@@ -5,6 +5,7 @@ import groovy.util.logging.Slf4j
 import org.apache.felix.scr.annotations.sling.SlingServlet
 import org.apache.sling.api.SlingHttpServletRequest
 import org.apache.sling.api.SlingHttpServletResponse
+import org.apache.sling.api.servlets.SlingAllMethodsServlet
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet
 
 import javax.annotation.Nonnull
@@ -23,7 +24,7 @@ import static com.shabhushan.rest.constants.BasicConstants.*
 @Slf4j
 @CompileStatic
 @SlingServlet(methods = ['GET', 'POST', 'PUT', 'DELETE'], resourceTypes = ['rest'])
-class RootResourceServlet extends SlingSafeMethodsServlet {
+class RootResourceServlet extends SlingAllMethodsServlet {
 
     @Override
     protected void doGet(
