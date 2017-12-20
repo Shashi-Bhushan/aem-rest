@@ -20,5 +20,7 @@ interface UserService {
     boolean deleteUser(int id)
     boolean deleteAllUsers()
 
+    boolean createRandomUsers(int number)
+
     boolean userExists(int id)
 }

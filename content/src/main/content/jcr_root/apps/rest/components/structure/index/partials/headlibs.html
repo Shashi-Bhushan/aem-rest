@@ -3,4 +3,9 @@
 
 <!--/* Include Cq's jQuery */-->
 <sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientLib.js @ categories='cq.jquery'}" data-sly-unwrap/>
+<!-- Include Angular -->
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientLib.js @ categories='angular'}" data-sly-unwrap/>
+<!-- Include Bootstrap -->
 <sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientLib.all @ categories='bootstrap'}" data-sly-unwrap/>
+
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientLib.js @ categories='core.index'}" data-sly-unwrap/>

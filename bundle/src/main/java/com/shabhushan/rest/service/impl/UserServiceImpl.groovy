@@ -24,6 +24,12 @@ import org.apache.sling.commons.json.JSONObject
 @Service(UserService)
 class UserServiceImpl implements UserService {
 
+    final static String[] nameList = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('') as String[]
+
+    final static Random random = new Random()
+
+    final static int max = 10000
+
     private List<UserModel> userList = []
 
     @Override
@@ -96,6 +102,20 @@ class UserServiceImpl implements UserService {
     @Override
     boolean deleteAllUsers() {
         userList = []
+        return true
+    }
+
+    @Override
+    boolean createRandomUsers(int number) {
+        userList = []
+
+        (1..number).each{
+            // get a random number
+            int id = random.nextInt(max + 1)
+
+            userList << new UserModel(id: it, name: nameList[id % 26])
+        }
+
         return true
     }
 

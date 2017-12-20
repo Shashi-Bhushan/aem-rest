@@ -1,0 +1,6 @@
+<b>Rest Randomize User Request.</b><br/>
+
+Example Usage : <br/>
+<a href="/rest/randomize/10">
+    Generate 10 Random Entries (Replace Existing Entries)
+</a> <br/>

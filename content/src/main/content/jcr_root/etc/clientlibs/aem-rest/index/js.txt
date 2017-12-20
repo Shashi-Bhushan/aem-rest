@@ -1,0 +1,5 @@
+#base=js
+
+module.js
+service.js
+controller.js

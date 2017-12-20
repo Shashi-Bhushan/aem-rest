@@ -52,16 +52,19 @@ class DeleteResourceServlet extends SlingAllMethodsServlet {
 
                 boolean userDeleted = userService.deleteUser(id)
                 responseObject.put(USER_DELETED_STATUS_KEY, userDeleted)
+
                 response.status = userDeleted ? SC_OK : SC_BAD_REQUEST
             } else if (urlTokens.size() == 4) {
                 // request is in form /rest/read/user
                 boolean usersDeleted = userService.deleteAllUsers()
 
                 responseObject.put(USERS_DELETED_STATUS_KEY, usersDeleted)
+
                 response.status = usersDeleted ? SC_OK : SC_BAD_REQUEST
             } else {
                 responseObject.put(USERS_DELETED_STATUS_KEY, false)
                 responseObject.put(USER_ERROR_KEY, "Malformed URL.")
+
                 response.status = SC_BAD_REQUEST
             }
 

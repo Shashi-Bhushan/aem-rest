@@ -2,6 +2,7 @@ package com.shabhushan.rest.provider
 
 import com.shabhushan.rest.resource.CreateResource
 import com.shabhushan.rest.resource.DeleteResource
+import com.shabhushan.rest.resource.RandomizeResource
 import com.shabhushan.rest.resource.ReadResource
 import com.shabhushan.rest.resource.RootResource
 import com.shabhushan.rest.resource.UpdateResource
@@ -66,6 +67,10 @@ class RestResourceProvider extends ResourceProvider {
             case ~/^\${providerRoot}\/delete(\/.*)?$/:
                 log.info "Resolving ${path} to Create Resource"
                 return new DeleteResource(resolveContext.resourceResolver, path)
+
+            case ~/^\${providerRoot}\/randomize(\/.*)?$/:
+                log.info "Resolving ${path} to Create Resource"
+                return new RandomizeResource(resolveContext.resourceResolver, path)
 
             default:
                 log.info "Resolving ${path} to Default Resource"
